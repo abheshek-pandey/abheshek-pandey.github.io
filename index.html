@@ -1,62 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="with=device-width", initial-scale=1.0 charset="utf-8" />
-    <title>Abheshek Pandey</title>
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-  </head>
+    <head>
+        <meta name="viewport" content="width=device-width", initial-scale=1.0 charset="utf-8" />
+        <!--Title-->
+            <title>Abheshek Pandey</title>
+        <!--favicon-->
+            <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+        <!--CSS-->
+            <link rel="stylesheet" href="./style.css">
+        <!--Font import from Google Fonts-->    
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    </head>
+    
+  <!--Body-->
+    <body>
+        <section class="header">
 
-<body>
-    <section class="header">
-        <nav>
-            <a href="index.html"><img src="images/Grhenta-1.jpg" alt="Tandin's Ghrenta awaits to take you back home."></a>
-            <div class="nav-links" id="navLinks">
-              <i class="material-symbols-sharp" onclick="hideMenu()">close</i>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Projects & Tinkerings</a></li>
-                    <li><a href="">Photography</a></li>
-                    <li><a href="">Ayan De</a></li>
-                    <li><a href="">Blog</a></li>
-                </ul>
+            <div>
+                <h1>Welcome...</h1>
+
+                <p>The complete website will be up and running soon.</p>
+
+                <img src="./images/Grhenta.jpg" alt="Tandin's Ghrenta, waiting to fly you home.">
+
+                <p>Find <b>Abheshek Pandey</b> elsewhere in the meantime?</p>
             </div>
-            <i class="material-symbols-sharp" onclick="showMenu()">menu</i>
-        </nav>
 
-    <div class="text-box">
-        <h1>Welcome.</h1>
-        <p>This is the personal website of Abheshek Pandey. <br>He is a pretty cool dude.</p>
+            <div class="socials">
+                    <a href="https://www.linkedin.com/in/abheshek-pandey/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/abheshek-pandey" target="_blank">GitHub</a>
+                    <a href="https://www.instagram.com/introvertbihari/" target="_blank">Instagram</a>
+                    <a href="mailto:pandey.abheshek+website@gmail.com" target="_blank">Email</a>
 
-        <a href="" class="hero-btn">Have a look around.</a>
-    </div>
-
-
-    </section>
-
-
-
-
-
-    <!--JavaScript for Toggle Menu-->
-    <script>
-
-        var navLinks = document.getElementById("navLinks")
-
-        function showMenu(){
-            navLinks.style.right = "0"
-        }
-        function hideMenu(){
-            navLinks.style.right = "-200px"
-        }
-
-    </script>
-
-</body>
+                <p>Looking for <b>Ayan De</b>?
+                    <br>
+                    Check out his <a href="http://ayande.abhe.in" target="_blank" class="socials">LinkTree</a>.</p>
+                
+                <p>Curious about that pig with wings?
+                    <br>
+                    Read the <a href="./Ayan-De/Fiction/tandin-s-ghrenta.html" class="socials" target="_blank">story</a> behind it.</p>
+            </div>
+            
+        </section>
+    </body>
 </html>
