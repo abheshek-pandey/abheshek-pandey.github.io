@@ -8,10 +8,7 @@ body {
 
 /*Header*/
   
-  .header{
-    font-size: 20px;
-    font-weight: 500;
-  }
+
 
     .navigation {
       display: flex;
@@ -21,12 +18,14 @@ body {
       margin:auto;
       width: 960px;
     }
-     .navigation a{
+    .navigation a{
       float: right;
       color: black;
       text-align: center;
       padding: 32.5px 12px ;
       text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
     }
     .navigation a.logo{
       float: left;
@@ -46,9 +45,6 @@ body {
     }
     .navigation a:not(.logo):hover::after{
       width: 100%;
-    }
-    .navigation a.icon{
-      display:"none";
     }
 
 
