@@ -1,48 +1,58 @@
 /* Sytlesheet */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     margin:auto;
     max-width: 960px;
+    min-height: 100%;
     font-family: 'EB Garamond', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-/*Header*/
-  
-  .header{
-    font-size: 20px;
+p {
+  font-size: 18px;
+}
+
+  /* || Site Footer*/
+  footer.site-footer {
+    bottom: 0;
+  }
+  footer.site-footer p{
+    padding: 20px 0;
+    font-size: 14px;
     font-weight: 500;
-    
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+  }
+  footer.site-footer a{
+    color: black;
   }
 
-    .navigation {
-      display: block;
-      background-color: rgba(47, 235, 172, 0.9);
-      overflow: auto;
-      /*position: fixed;*/
-     
+
+/* || Site Header*/
+  
+    .topnav {
+      overflow: hidden;
+      background-color: rgb(255, 255, 255);
+      padding-left: 1%;
+      padding-right: 1% ;
     }
-    .navigation a.logo{
+    
+    .topnav a {
       float: left;
-      padding: 0 2%;
-    }
-    .navigation a.logo img{
-      height: 76px;
-    }
-    .nav-right{
-      padding-right: 2%;
-      padding-top: 16px;
-    }
-    .nav-right a{
-      float: right;
-      color: black;
+      color: #000000;
       text-align: center;
-      padding: 10px 12px ;
+      padding: 14px 16px;
       text-decoration: none;
+      font-size: 20px;
     }
-    .nav-right a.icon{
-      display: none;
-    }
-    .nav-right a:after{
+
+    .topnav a:after{
       content: '';
       width: 0%;
       height: 1px;
@@ -51,23 +61,23 @@ body {
       margin: auto;
       transition: 500ms;
     }
-    .nav-right a:not(a.icon)hover::after{
+    .topnav a:hover::after {
       width: 100%;
     }
+    
+    .topnav-right {
+      float: right;
+    }
+    .topnav-right a.icon{
+      display: none;
+    }
 
-
+    /*
     @media screen and (max-width: 600px) {
-      .navigation a.logo {
-        display: block;
-        float: flex;
-        margin-left: auto;
-        margin-right: auto;
-        width: 91.66px;
-      }
-      .nav-right a {
+      .topnav-right a {
         display: none;
       }
-      .nav-right a.icon {
+      .topnav-right a.icon {
         float: right;
         display: block;
       }
@@ -94,8 +104,8 @@ body {
         width: 100%;
         text-align: left;
       }
-    }
-/*/////////////////////////////////////
+    }*/
+    /*/////////////////////////////////////
     .dropdown {
       float: left;
       overflow: hidden;
@@ -143,97 +153,105 @@ body {
     .dropdown:hover .dropdown-content {
       display: block;
     }
-////////////////////////////////////////////////*/    
+  ////////////////////////////////////////////////*/    
 
-    
+  /*Body of the Page*/
 
-
-
-
-
-
-
-
-    /*Navbar*/
-    .topnav {
-    display: flex;
-    background: rgba(241, 148, 148, 0.5);
-    backdrop-filter: blur(7px);
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.4s; /* Adds a transition effect when the padding is decreased */
-    /*position: ;*/
-    margin: auto;
-    top: 0; /* At the top */
-    z-index: 99;
-    }
-        .topnav img{
-        flex: 1;
-        height: 76px;
-        padding-left: 10%;
-        padding-top: 5%;
-        }
-
-    /*Nav links*/
-    .nav-links {
-    flex: 1;
-    text-align: right;
-    }
-        .nav-links ul li {
-        list-style: none;
-        display: inline-block;
-        padding: 8px 12px;
-        position: relative;
-        }
-        .nav-links ul li a{
-        color: black;
-        text-decoration: none;
-        font-size: 20px;
-        font-weight: 400;
-        }
-        .nav-links ul li::after{
-        content: '';
-        width: 0%;
-        height: 1px;
-        background: rgb(0, 0, 0);
-        display: block;
-        margin: auto;
-        transition: 500ms;
-        }
-        .nav-links ul li:hover::after{
-        width: 100%;
-        }
-        .nav-links .icon {
-        display: none;
-        }
-
-/*Body of the Page*/
-
-  .content {
-      margin-top: 81px;;
+  a {
+    color: #000000;
   }
 
-  /*Fiction*/
-    .fiction {
-        margin:auto;
-        max-width: 90%;
-        width: 600px;
+  .bibliography ul{
+    margin:auto;
+    text-align: left;
+    font-size: 18px;
+    max-width: 600px;;
+  }
+
+    main.landing{
+      padding: 0 5%;
+      text-align: center;
     }
-        .fiction h1{
-            font-size: 36px;
-            font-weight: 700;
+
+    main.landing abbr{
+      text-decoration: none;
+    }
+
+    main.landing p{
+      margin: auto;
+      margin-bottom: 15px;
+      text-align: justify;
+      max-width: 600px;
+    }
+
+    main.landing h1{
+      margin: auto;
+      margin-bottom: 35px;
+      text-align: center;
+      font-size: 42px;
+    }
+
+    main .hero{
+      height: calc(100vh - 55px);
+      text-align: center;
+    }
+
+    main .hero .hero-txt {
+      width: 90%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    main .hero-btn{
+      display: inline-block;
+      text-decoration: none;
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 10px;
+      padding: 12px 34px;
+      background: transparent;
+      position: relative;
+      cursor: pointer;
+      font-size: 20px;
+      margin: 30px 0;
+      transition: 500ms;
+    }
+    main .hero-btn:hover{
+      box-shadow: 5px 5px 20px hsla(0, 0%, 0%, 0.5);
+      
+    }
+
+
+
+    /*Fiction*/
+      main.fiction {
+          margin:auto;
+          max-width: 90%;
+          width: 600px;
+      }
+          main.fiction h1{
+              font-size: 36px;
+              font-weight: 700;
+              text-align: center;
+          }
+          main.fiction p{
+              font-size: 18px;
+              font-weight: 500;
+              text-align: justify;
+          }
+          main.fiction figure{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 50%;
+          }
+          main.fiction figcaption{
             text-align: center;
-        }
-        .fiction p{
-            font-size: 18px;
-            font-weight: 500;
-            text-align: justify;
-        }
-        .fiction span {
-          float: left;
-          font-size: 400%;
-          font-weight: 700;
-          line-height: 85%;
-        }
-        
+            font-style: italic;
+          }
+
+          
+
+
