@@ -376,6 +376,7 @@ main a {
             font-weight: 500;
             text-align: justify;
             margin: auto;
+            padding: auto;
         }
         main.fiction figure{
             display: block;
