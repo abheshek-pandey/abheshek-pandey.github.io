@@ -80,6 +80,7 @@ p {
   background-color: var(--secondary-bg-color);
   color: var(--text-color);
   font-size: var(--header-text);
+  z-index: 999;
 }
 
 .topnav {
@@ -288,6 +289,10 @@ footer.site-footer a{
 
 
 /* || Main  */
+
+main{
+  margin-top: auto;
+}
 
 main a {
   color: var(--link-color);
