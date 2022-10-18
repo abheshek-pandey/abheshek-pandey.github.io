@@ -49,13 +49,14 @@ It has had me seeking answers in Python, which is something else I am trying to 
 
 ## Future Work
 
-* Add Responsiveness
+* ~~Adding Responsiveness~~ *(19-10-22)*
 * Refining the HTML files.
 * Improving accessibility.
 * Adding more parameters to the CSS.
 * Explore further use of JavaScript.
 * Improving the "back-end" operations.
-* Adding a blog.
+* ~~Adding a blog.~~ *(19-10-22)*
+* ~~Adding Dark Mode.~~ *(19-10-22)*
 * Posting "interesting" things on the  blog.
 * Add a tagging system for the blogs.
 * Adding a WebAudio player for my PureData patches.
