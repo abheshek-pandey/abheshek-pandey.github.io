@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width", initial-scale=1.0 charset="utf-8" />
+    <!--Title-->
+    <title>On Building a Static Site Generator with Python - Notes from the Slumberground</title>
+    <meta name="description" content="Abheshek Pandey's personal blog - Notes from the Slumberground. Everything from his coding journey to ramblings ad libitum. This one is about-: How I built a static site generator using Python, why I did and why I probably shouldn't have.">
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+</head>
+<body>
+    <!--Header-->
+    <header class="site-header" id="site-header">
+        <nav class="topnav" id="myTopnav">
+            <a href="/" class="logo">Abheshek Pandey</a>
+            <div class="split">
+                <a href="/#about">About</a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="/tinkerings.html" class="button">Tinkerings</a>
+                    </button>
+                        <div class="dropdown-content">
+                            <a href="/tinkerings.html#code">Code</a>
+                            <a href="/tinkerings.html#algorhythm">Algorhythm</a>
+                            <!--<a href="#">Web Design</a>-->
+                        </div>
+                </div>
+                <a href="/photography/">Photography</a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="/ayande/" class="button">Ayan De</a>
+                    </button>
+                        <div class="dropdown-content">
+                            <a href="/ayande/#about">About</a>
+                            <a href="/ayande/#bibliography">Bibliography</a>
+                            <a href="/ayande/#contact">Contact</a>
+                        </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="/blog/" class="button">Blog</a>
+                    </button>
+                        <div class="dropdown-content">
+                            <a href="/blog/">Recent</a>
+                            <a href="/blog/all.html">All</a>
+                        </div>
+                </div> 
+                <a href="/#contact">Contact</a>
+                <button class="iconica place-items-center" id="theme-toggle-button">
+                    <span class="sun-icon">
+                        <i class="material-symbols-sharp">light_mode</i>
+                    </span>
+                    <span class="moon-icon">
+                        <i class="material-symbols-sharp">dark_mode</i>
+                    </span>
+                </button>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon menuMenu" onclick="menuButton()">
+                    <span class="open-menu-icon">
+                        <i class="material-symbols-sharp" id="menu">menu</i>
+                    </span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+<!-- <div class="blog-title">
+  <p>Notes from the Slumberground</p>
+</div> -->
+
+<main class="blog">
+
+<h1>On Building a Static Site Generator with Python</h1>
+
+<div class="blog-meta">
+
+<p>Abheshek Pandey | <time datetime="2022-10-22">2022-10-22</time><br>
+    <br>
+<em>How I built a static site generator using Python, why I did and why I probably shouldn't have.</em>
+</p>
+</div>
+
+<hr>
+
+<h2>Hello World</h2>
+
+
+<p>First of all, welcome to my blog, christened "<strong>Notes from the Slumberground</strong>." Is it going to be about classic Russian Literature from the perspective of a laidback gen-Z? Could be one day, when I actually read Dostoevsky, but probably not. It just sounded nice and vaguely literate, a lot like myself, actually.</p>
+
+<p>I don't know what to blog about, or how to do it do it well, so I guess the best place to begin would be to tell you about its inception.</p>
+
+<p>You see, when mummy-boredom and daddy-tech-illiteracy love each other very much, instead of just getting a hobby they both can enjoy together, they arrogantly decide that they want make something that's beyond their current capabilities.</p>
+
+<p>And why adopt a toilet-trained infant-Content-Management-System when they can build a baby-Static-Site-Generator from <code>Python</code> packages? At least then, despite sleepless nights of taking care of the shit-covered baby, they'll get to upload cute photos-Blog-Posts once in a while.</p>
+
+<p>Now that that clunky metaphor is finally over, let's talk about building a static site generator with python...</p>
+
+<h2>Monochrome SSG</h2>
+
+<h3>About</h3>
+
+<p>A Static Site-Generator (SSG) is a tool that generates static HTML pages based on raw data and a set of templates. You can focus on the content that goes up on the website, instead of worrying about marking it up according to HTML. Plus, you don't have to worry about manually adding common elements of your website, like the header and footer, to each new page.</p>
+
+<p>Monochrome SSG is a custom-built <code>Python</code> SSG used to generate pages for my personal <a href="https://www.abhe.in/" title="abhe.in">website</a> and <a href="https://www.abhe.in/blog/" title="Notes from the Slumberground">blog</a>. It converts files written in <a href="https://www.markdownguide.org/">Markdown</a> to HTML based on templates that I created for my website.</p>
+
+<p>It's used to fulfil the "back-end" needs of my website hosted on GitHub Pages. Full notebook available <a href="https://github.com/abheshek-pandey/monochrome-ssg/settings/pages">here</a>.</p>
+
+<p>Called "Monochrome" because it was for being built for a website that was rendered using mostly black and white, and a hint of grey. However, before I could finish this script, I added a dark-mode that's got a lovely shade of <a href="https://www.color-hex.com/color/e62492">pink</a> as the highlight colour.</p>
+
+<p>The name stuck due to the argument that the pink is the only "chrome" in the surrounding greyscale. Though it was mostly because I could not think of anything else.</p>
+
+<p>The code was inspired by <a href="https://rahmonov.me/posts/static-site-generator/">Jahongir Rahmonov's</a> tutorial.</p>
+
+<h3>Python Libraries Used</h3>
+
+<ul>
+<li><code>os</code></li>
+<li><code>datetime</code></li>
+<li><code>markdown2</code></li>
+<li><code>jinja2</code></li>
+<li><code>tkinter</code></li>
+</ul>
+
+<h3>Markdown File Set-Up</h3>
+
+<p>The markdown files need to begin with certain YAML style metadata that will provide the SSG the necessary information to style the page.</p>
+
+<p>Each file will begin with the following block of information:</p>
+
+<div class="codehilite">
+<pre><span></span><code>---
+page-title: {{Title of the page}}
+page-description: {{Description of the page}}
+main-class: {{CSS class to be used}}
+title: {{Title of the blog post}}
+date: {{Date of the blog post}}
+tags: {{Tags relating to the blog post}}
+thumbnail: {{Thumbnail image}}
+summary: {{Summary of the page}}
+slug: {{Filepath to the post}}
+
+---
+</code></pre>
+</div>
+
+<p><strong><em>The block must be followed by an empty line.</em></strong></p>
+
+<h3>HTML Template Set-Up</h3>
+
+<p>The HTML templates also require the presence variables enclosed between double curly-braces: <code>{{variable}}</code>.</p>
+
+<h4>Blog Post HTML file:</h4>
+
+<div class="codehilite">
+<pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{post.title}}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>{{post.date}}<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;</span>
+
+{{post.content}}
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre>
+</div>
+
+<h4>Index / Recents HTML file:</h4>
+
+<div class="codehilite">
+<pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+{% for post in posts %}
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{loop.index}}: <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/blog/posts/{{ post.slug }}.html&quot;</span><span class="p">&gt;</span>{{post.title}}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>{{post.date}}<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+      {{post.summary}}
+  <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% endfor %}
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre>
+</div>
+
+<h3>Directory Structure</h3>
+
+<p>The directory structure that follows allows for drafts to be separated from the <code>content</code> folder, which contains the Markdown files that will be rendered as HTML blog posts in the <code>posts</code> directory.</p>
+
+<div class="codehilite">
+<pre><span></span><code>.
+├── drafts
+│   ├── crazy-ideas.md
+│   └── writers-block.md
+├── content
+│   ├── 2022-09-10-arson.md
+│   └── 2022-19-11-boiled-egg.md
+├── posts
+│   ├── arson-crime-or-hobby.html 
+│   └── my-life-as-a-boiled-egg.html
+├── template
+│   ├── all-posts-template.html
+│   |── blog-template.html
+|   └── recent-posts-template.html
+├── all-posts.html # list of all posts of the blog
+└── index.html # contains only 5 recent posts in case of my blog
+</code></pre>
+</div>
+
+<h3>The Code</h3>
+
+<p>The following block of code uses <a href="https://docs.python.org/3/library/tkinter.html"><code>tkinter</code></a> to present a GUI to select the Markdown file that will be rendered as a blog post. </p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span>
+
+<span class="k">global</span> <span class="n">input_filename</span>
+<span class="n">input_filename</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span>
+    <span class="n">initialdir</span><span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+    <span class="n">filetypes</span><span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s2">&quot;All files&quot;</span><span class="p">,</span> <span class="s2">&quot;*.*&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Markdown files&quot;</span><span class="p">,</span><span class="s2">&quot;*.md&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Text files&quot;</span><span class="p">,</span> <span class="s2">&quot;*.txt&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="n">label_file_explorer</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;File Opened: &quot;</span><span class="o">+</span><span class="n">input_filename</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Once the input file has been selected, the following code uses <a href="https://pypi.org/project/markdown2/"><code>markdown2</code></a> to parse the Markdown file and and <a href="https://pypi.org/project/Jinja2/"><code>jinja2</code></a> as the template engine to render the blog page.</p>
+
+<p>On an unrelated note, it's not just (H/B)ollywood that's obsessed with sequels.</p>
+
+<p>The code is as follows:</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">PackageLoader</span>
+<span class="kn">from</span> <span class="nn">markdown2</span> <span class="kn">import</span> <span class="n">markdown</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">parsed_md</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">extras</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
+
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">PackageLoader</span><span class="p">(</span><span class="s1">&#39;package&#39;</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">))</span>
+    <span class="c1"># seems to work only with a blank package.py file in the project root.</span>
+    <span class="n">post_detail_template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;post-detail.html&#39;</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">parsed_md</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">parsed_md</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">parsed_md</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="n">blog_html_content</span> <span class="o">=</span> <span class="n">post_detail_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">post</span><span class="o">=</span><span class="n">parsed_md</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="n">blog_filepath</span> <span class="o">=</span> <span class="s1">&#39;output/posts/</span><span class="si">{slug}</span><span class="s1">.html&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">slug</span><span class="o">=</span><span class="n">parsed_md</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">])</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">blog_filepath</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;blog_filepath&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">blog_html_content</span><span class="p">)</span>
+
+<span class="n">label_file_explorer</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Blog Rendered&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Similar code was also used to generate and update the index of all blog posts and the recent posts page:</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="n">BLOG</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">label_file_explorer</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Updating index...&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">blog_md</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">):</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="n">blog_md</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">BLOG</span><span class="p">[</span><span class="n">blog_md</span><span class="p">]</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span><span class="n">extras</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
+
+
+<span class="n">BLOG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">post</span><span class="p">:</span> <span class="n">BLOG</span><span class="p">[</span><span class="n">post</span><span class="p">]</span> <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span>
+        <span class="n">BLOG</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">post</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
+            <span class="n">BLOG</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span>
+            <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">PackageLoader</span><span class="p">(</span><span class="s1">&#39;monochrome&#39;</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">))</span>
+<span class="n">all_posts_template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;all-posts-template.html&#39;</span><span class="p">)</span>
+<span class="n">recent_posts_template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;recent-posts-template.html&#39;</span><span class="p">)</span>
+
+<span class="n">index_blog_metadata</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BLOG</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">.</span><span class="n">metadata</span> <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">BLOG</span>
+<span class="p">]</span>
+
+<span class="n">all_posts_html</span> <span class="o">=</span> <span class="n">all_posts_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">posts</span><span class="o">=</span><span class="n">index_blog_metadata</span><span class="p">)</span>
+
+<span class="n">recents</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">5</span><span class="p">:</span>
+    <span class="n">recents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index_blog_metadata</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">recent_posts_html</span> <span class="o">=</span> <span class="n">all_posts_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">posts</span><span class="o">=</span><span class="n">recents</span><span class="p">)</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output/all.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">all_posts_html</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output/index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">recent_posts_html</span><span class="p">)</span>
+
+<span class="n">label_file_explorer</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Index Updated&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>The preceding code-blocks were used to define functions, which were then assigned to buttons in the GUI.</p>
+
+<h3>The Ugly GUI</h3>
+
+<p>Going back to the metaphor of parenting a nasty child for a second...</p>
+
+<p><img src="./../assets/monochrome01-gui.png" alt="&quot;Monochrome SSG v01 - Ugly GUI&quot;" title="An ugly GUI of Monochrome SSG v01" /></p>
+
+<p>I want to do to this what Mr &amp; Mrs Cobblepot <a href="https://en.wikipedia.org/wiki/Batman_Returns#:~:text=Two%20wealthy%20socialites%2C%20dismayed%20at%20the%20birth%20of%20their%20malformed%20and%20feral%20son%2C%20Oswald%20Cobblepot%2C%20discard%20the%20infant%20in%20the%20sewers%2C%20where%20he%20is%20adopted%20by%20a%20family%20of%20penguins." title="Batman Returns (1992) - Wikipedia">did</a> to baby Oswald back in 1992, but I'm holding onto hope that with enough love and support, this might grow into something as handsome as Danny DeVito.</p>
+
+<p><img src="./../assets/monochrome01-gui-devito.png" alt="&quot;Monochrome SSG v01 - Ugly GUI&quot;" title="An artist's impression of GUI-deVito for a future version of Monochrome SSG" /></p>
+
+<h2>Future Work</h2>
+
+<p>A lot of stuff needs to be done to make this more functional and adaptable for more intensive use. Some of the major goals for me right now are as follows:</p>
+
+<ul>
+<li>Add templates for non-blog pages.</li>
+<li>Add functionality to update templates.</li>
+<li>Add functionality to regenerate pages with new templates.</li>
+<li>Add functionality to import <code>.ipynb</code> HTML export.</li>
+</ul>
+
+<h2>Summation</h2>
+
+<p>So, was it worth building an SSG from scratch? Can't really say right now.</p>
+
+<p>There are many amazing SSG's (re: free) out there, used by so many, and what I have built is far from being a game-changer. But as a coding beginner, it did teach me a bunch of stuff about <code>Python</code> that will come in handy.</p>
+
+<p>Plus, it gave me something to blog about.</p>
+
+<p>I'll keep tinkering with it, and maybe there will be something blog-able about it soon.</p>
+
+<h2>Goodbye World</h2>
+
+<p>For now...</p>
+
+<hr>
+
+<p class="blog.meta">Tags: <em>python, coding, programming, projects</em></p>
+
+</main>
+
+
+
+
+
+
+<footer class="site-footer">
+  <hr> 
+  <p>
+      &copy; <span id="copyright-year"></span> Abheshek Pandey<br>
+      <a href="mailto:pandey.abheshek+abhedotin@gmail.com">pandey.abheshek@gmail.com</a> | Mumbai, IN</a><br>
+  </p>
+
+</footer>
+
+<script src="/scripts/script.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>
