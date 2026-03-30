@@ -3,25 +3,30 @@ layout: default
 title: Abheshek Pandey | Engineer & Operations
 ---
 
-<section class="hero" id="hero">
-    <div class="hero-txt">
-        <h1>Abheshek Pandey</h1>
-        <h2>Hiker. Photographer. Engineer.</h2>
-        <a href="#about" class="hero-btn">Find Out More</a>
-    </div>
+<section class="hero" id="hero" markdown="1">
+
+<div class="hero-txt" markdown="1">
+
+# Abheshek Pandey
+## Engineer. Operations. Builder.
+
+<a href="#about" class="hero-btn">Find Out More</a>
+
+</div>
+
 </section>
 
 ---
 
-<section class="about" id="about">
+<section class="about" id="about" markdown="1">
 
 # About
 
-Abheshek Pandey *(he/him)* is a recent graduate with a <abbr title="Bachelor of Engineering (honours)">BEng (hons)</abbr> in Aerospace Engineering, Astronautics and Space Technology from Kingston University, London. His [thesis](/assets/abheshek-pandey-ug-thesis.pdf) project involved researching biodegradable alternatives for composites used in aircrafts to make them greener. Ironically, he does not like the colour green.
+Abheshek Pandey *(he/him)* is an engineer and operations leader who holds a Master's degree, building upon a strong foundation in Aerospace Engineering, Astronautics, and Space Technology from Kingston University, London. His academic background includes extensive research into biodegradable alternatives for aircraft composites.
 
-He is currently based in Mumbai, India, where he is the <abbr title="Chief Operating Officer">COO</abbr> of [Movie Me](https://justmovieme.com), a start-up in the field of Entertainment. He leads the efficient running of operations through his experience in project management, and effective communication and time management.
+Currently based in Chicago, Illinois, he is the former <abbr title="Chief Operating Officer">COO</abbr> of [Movie Me](https://justmovieme.com), an entertainment startup where he led operations, project management, and cross-functional communication. 
 
-He is expanding his skill-set to include a greater knowledge of programming languages, such as Python, Java & <abbr title="Structured Query Language">SQL</abbr>.
+Beyond operations, he is actively expanding his technical portfolio into AI and data engineering. His recent work includes developing a Serverless ETL Pipeline on AWS utilizing the Gemini API to power a Job Recommendation System, alongside conducting comprehensive competitive analyses and investment due diligence. His core technical stack includes Python, Java, <abbr title="Structured Query Language">SQL</abbr>, and cloud infrastructure.
 
 <a href="#contact" class="hero-btn">Get In Touch</a>
 
@@ -29,7 +34,7 @@ He is expanding his skill-set to include a greater knowledge of programming lang
 
 ---
 
-<section class="contact" id="contact">
+<section class="contact" id="contact" markdown="1">
 
 # Contact
 
